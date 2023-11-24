@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Finanace Risk Segmenter
 
 # Descripcion del proyecto:
