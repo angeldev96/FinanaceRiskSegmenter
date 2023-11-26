@@ -5,7 +5,7 @@ import pandas as pd
 app = Flask(__name__)
 
 # Cargar el modelo al iniciar la aplicación
-modelo = joblib.load('risk.pkl')
+modelo = joblib.load('models/risk.pkl')
 
 @app.route('/predecir', methods=['POST'])
 def predecir():
