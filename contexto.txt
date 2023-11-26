@@ -1,0 +1,153 @@
+tengo estos notebooks:
+
+Implementacion_Modelo.ipynb
+import numpy as np
+import pandas as pd
+from sklearn.cluster import KMeans
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report, confusion_matrix
+from sklearn.model_selection import train_test_split
+
+# Generar datos ficticios de clientes
+np.random.seed(0)
+n_samples = 1000000
+
+# Variables ficticias
+edad = np.random.randint(18, 70, n_samples)
+ingresos = np.random.uniform(10000, 1000000, n_samples)
+deuda_crediticia = np.random.uniform(0, 100000, n_samples)
+historial_pago = np.random.randint(0, 3, n_samples)
+nacionalidad = np.random.choice(['Nacional', 'Extranjero'], size=n_samples)
+
+# Crear un DataFrame
+data = pd.DataFrame({
+    'Edad': edad,
+    'Ingresos': ingresos,
+    'Deuda_Crediticia': deuda_crediticia,
+    'Historial_Pago': historial_pago,
+    'Nacionalidad': nacionalidad
+})
+
+# Seleccionar características relevantes
+X = data[['Edad', 'Ingresos', 'Deuda_Crediticia', 'Historial_Pago']]
+
+# Aplicar el algoritmo K-Means para segmentar a los clientes
+n_clusters = 3
+kmeans = KMeans(n_clusters=n_clusters, random_state=0)
+data['Segmento'] = kmeans.fit_predict(X)
+#0: Bajo, 1:Medio, 2:Alto
+
+# Dividir los datos en conjuntos de entrenamiento y prueba
+X = data[['Edad', 'Ingresos', 'Deuda_Crediticia', 'Historial_Pago']]
+y = data['Segmento']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
+
+# Crear y entrenar un modelo de Random Forest para predecir el riesgo
+model = RandomForestClassifier(n_estimators=100, random_state=0)
+model.fit(X_train, y_train)
+
+# Realizar predicciones en el conjunto de prueba
+y_pred = model.predict(X_test)
+
+# Evaluar el modelo
+print("Matriz de confusión:")
+print(confusion_matrix(y_test, y_pred))
+
+print("\nInforme de clasificación:")
+print(classification_report(y_test, y_pred, target_names=['Bajo', 'Medio', 'Alto']))
+
+Visualizacion de la segmentacion.ipynb:
+import numpy as np
+import pandas as pd
+from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
+
+# Generar datos ficticios de clientes
+np.random.seed(0)
+n_samples = 1000
+
+# Variables ficticias
+edad = np.random.randint(18, 70, n_samples)
+ingresos = np.random.uniform(10000, 1000000, n_samples)
+deuda_crediticia = np.random.uniform(0, 100000, n_samples)
+historial_pago = np.random.randint(0, 3, n_samples)
+nacionalidad = np.random.choice(['Nacional', 'Extranjero'], size=n_samples)
+
+# Crear un DataFrame
+data = pd.DataFrame({
+    'Edad': edad,
+    'Ingresos': ingresos,
+    'Deuda_Crediticia': deuda_crediticia,
+    'Historial_Pago': historial_pago,
+    'Nacionalidad': nacionalidad
+})
+
+# Seleccionar características relevantes
+X = data[['Edad', 'Ingresos', 'Deuda_Crediticia', 'Historial_Pago']]
+
+# Aplicar el algoritmo K-Means para agrupar a los clientes en segmentos
+n_clusters = 3  # Definir el número de segmentos (puedes ajustarlo según tus necesidades)
+kmeans = KMeans(n_clusters=n_clusters, random_state=0)
+data['Segmento'] = kmeans.fit_predict(X)
+
+
+# Visualizar los segmentos en un gráfico 2D (para dos características)
+plt.scatter(X['Edad'], X['Ingresos'], c=data['Segmento'], cmap='rainbow')
+plt.xlabel('Edad')
+plt.ylabel('Ingresos')
+plt.title('Segmentación de Clientes')
+
+plt.show()
+print(legend_labels)
+# Visualizar los segmentos en un gráfico 2D (para dos características)
+plt.scatter(X['Deuda_Crediticia'], X['Ingresos'], c=data['Segmento'], cmap='rainbow')
+plt.xlabel('Deuda_Crediticia')
+plt.ylabel('Ingresos')
+plt.title('Segmentación de Clientes')
+plt.show()
+
+# Visualizar los segmentos en un gráfico 2D (para dos características)
+plt.scatter(X['Historial_Pago'], X['Ingresos'], c=data['Segmento'], cmap='rainbow')
+plt.xlabel('Historial_Pago')
+plt.ylabel('Ingresos')
+plt.title('Segmentación de Clientes')
+plt.show()
+
+# Visualizar los segmentos en un gráfico 2D (para dos características)
+plt.scatter(X['Historial_Pago'], X['Edad'], c=data['Segmento'], cmap='rainbow')
+plt.xlabel('Historial_Pago')
+plt.ylabel('Edad')
+plt.title('Segmentación de Clientes')
+plt.show()
+
+# Resumen de segmentos
+#segment_summary = data.groupby('Segmento').mean()
+#print(segment_summary)
+
+
+en resumen, lo que hace el modelo es esto:
+El modelo implementado en los notebooks realiza dos funciones principales: la segmentación de clientes y la predicción del segmento al que pertenecen los clientes:
+
+Segmentación de Clientes usando K-Means:
+
+Generación de Datos Ficticios: Se crean datos simulados de clientes con características como edad, ingresos, deuda crediticia, historial de pago y nacionalidad.
+Uso de K-Means para Segmentación: El algoritmo K-Means se aplica a estas características para agrupar a los clientes en tres segmentos distintos, identificados como bajo, medio y alto. Esta segmentación se basa en patrones encontrados en los datos, agrupando a clientes con características similares.
+Predicción de Segmentos con Random Forest:
+
+Entrenamiento de un Modelo de Random Forest: Tras la segmentación, se entrena un modelo de Random Forest utilizando los datos segmentados. El objetivo es predecir a qué segmento pertenecería un nuevo cliente basado en sus características.
+Evaluación del Modelo: El modelo se evalúa utilizando una división de entrenamiento-prueba para verificar su precisión y eficacia. Se usan herramientas como la matriz de confusión y el informe de clasificación para medir su rendimiento.
+En conjunto, este modelo es una herramienta útil para entender mejor la base de clientes de una empresa. Permite a las empresas segmentar a sus clientes de manera efectiva y predecir a qué segmento pertenecerían nuevos clientes, lo cual es crucial para desarrollar estrategias de marketing y ventas personalizadas y dirigidas. La visualización de los segmentos también ayuda a obtener una comprensión visual de cómo se distribuyen los clientes en diferentes categorías según sus características.
+
+
+ahora, necesito integrar este modelo en una aplicacion web, que haga esto:
+
+## Aplicación de Segmentación de Clientes Financieros
+Descripción
+Esta aplicación web permite a los usuarios obtener una predicción sobre su segmento financiero (bajo, medio, alto) basándose en su perfil económico. A través de un formulario interactivo, los usuarios pueden ingresar datos como edad, ingresos, deuda crediticia e historial de pago. La aplicación utiliza un modelo de aprendizaje automático para predecir el segmento al que pertenecen y ofrece visualizaciones detalladas para comparar su perfil con las tendencias generales de cada segmento.
+
+## Características
+Formulario de Ingreso de Datos: Los usuarios pueden ingresar su información personal y financiera de forma segura.
+Predicción de Segmento de Cliente: Basado en los datos proporcionados, la aplicación predice y muestra el segmento financiero del usuario.
+Visualización de Datos Interactiva: Gráficos interactivos que muestran cómo se comparan los datos del usuario con las tendencias generales de cada segmento financiero.
+
+
