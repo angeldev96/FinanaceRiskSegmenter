@@ -1,13 +1,9 @@
 
-# Finanace Risk Segmenter
+## Aplicación de Segmentación de Clientes Financieros
+Descripción
+Esta aplicación web permite a los usuarios obtener una predicción sobre su segmento financiero (bajo, medio, alto) basándose en su perfil económico. A través de un formulario interactivo, los usuarios pueden ingresar datos como edad, ingresos, deuda crediticia e historial de pago. La aplicación utiliza un modelo de aprendizaje automático para predecir el segmento al que pertenecen y ofrece visualizaciones detalladas para comparar su perfil con las tendencias generales de cada segmento.
 
-# Descripcion del proyecto:
-#### Se requiere desarrollar una aplicación web.
-La aplicación debe integrar un modelo de inteligencia artificial proporcionado, el cual está en formato .h5 y fue desarrollado en Python.
-
-#### Requerimientos Específicos:
-#### Integración del Modelo de IA: Implementar el modelo de inteligencia artificial en la aplicación web.
-#### Tipo de Producción: El modelo debe ser puesto en producción.
-#### Detalles Adicionales:
-#### Se sugiere la posibilidad de utilizar tecnologías como JavaScript para la implementación.
-#### La aplicación será utilizada en el sector financiero.
+## Características
+Formulario de Ingreso de Datos: Los usuarios pueden ingresar su información personal y financiera de forma segura.
+Predicción de Segmento de Cliente: Basado en los datos proporcionados, la aplicación predice y muestra el segmento financiero del usuario.
+Visualización de Datos Interactiva: Gráficos interactivos que muestran cómo se comparan los datos del usuario con las tendencias generales de cada segmento financiero.
