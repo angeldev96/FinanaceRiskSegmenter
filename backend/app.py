@@ -6,8 +6,7 @@ import pandas as pd
 
 app = Flask(__name__)
 
-CORS(app, resources ={r"/predecir": {"origins": "http://localhost:5173"}})
-
+CORS(app)
 
 # Cargar el modelo al iniciar la aplicación
 modelo = joblib.load('models/risk.pkl')
