@@ -22,7 +22,7 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/predecir', {
+      const response = await fetch('http://54.174.83.82:5000/predecir', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
