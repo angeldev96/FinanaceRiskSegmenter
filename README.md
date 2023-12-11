@@ -10,3 +10,5 @@ Los usuarios pueden ingresar su información personal y financiera de forma segu
 Basado en los datos proporcionados, la aplicación predice y muestra el segmento financiero del usuario.
 ### Visualización de Datos Interactiva: 
 Gráficos interactivos que muestran cómo se comparan los datos del usuario con las tendencias generales de cada segmento financiero.
+
+- cambiar UI con componentes de Tailwind UI
