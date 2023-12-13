@@ -12,6 +12,12 @@ modelo = joblib.load('models/risk.pkl')
 
 @app.route('/predecir', methods=['POST'])
 def predecir():
+    """
+    Endpoint for making predictions based on input data.
+
+    Returns:
+        JSON: The prediction result as a JSON object.
+    """
     try:
         # Get data from the request
         datos_json = request.json
