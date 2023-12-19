@@ -38,67 +38,80 @@ function App() {
 
   return (
     <div className="App bg-gray-100 min-h-screen flex flex-col items-center justify-center">
-    <div className="w-full max-w-xs">
-        <h1 className="mb-6 text-3xl font-bold text-center text-gray-700">Formulario de Predicción</h1>
-        <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-            <div className="mb-4">
-                <input
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    type="number"
-                    name="Edad"
-                    value={formData.Edad}
-                    onChange={handleChange}
-                    placeholder="Edad"
-                />
-            </div>
-            <div className="mb-4">
-                <input
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    type="number"
-                    name="Ingresos"
-                    value={formData.Ingresos}
-                    onChange={handleChange}
-                    placeholder="Ingresos"
-                />
-            </div>
-            <div className="mb-4">
-                <input
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    type="number"
-                    name="Deuda_Crediticia"
-                    value={formData.Deuda_Crediticia}
-                    onChange={handleChange}
-                    placeholder="Deuda Crediticia"
-                />
-            </div>
-            <div className="mb-6">
-                <input
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                    type="number"
-                    name="Historial_Pago"
-                    value={formData.Historial_Pago}
-                    onChange={handleChange}
-                    placeholder="Historial de Pago"
-                />
-            </div>
-            <div className="flex items-center justify-between">
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-                    Enviar
-                </button>
-            </div>
+      <div className="w-full max-w-md">
+        <h1 className="mb-6 text-3xl font-bold text-center text-gray-800">Formulario de Predicción</h1>
+        <form onSubmit={handleSubmit} className="bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4">
+          {/* Edad */}
+          <div className="mb-5">
+            <input
+              type="number"
+              name="Edad"
+              value={formData.Edad}
+              onChange={handleChange}
+              placeholder="Edad"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-grey dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            />
+          </div>
+  
+          {/* Ingresos */}
+          <div className="mb-5">
+            <input
+              type="number"
+              name="Ingresos"
+              value={formData.Ingresos}
+              onChange={handleChange}
+              placeholder="Ingresos"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-grey dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            />
+          </div>
+  
+          {/* Deuda Crediticia */}
+          <div className="mb-5">
+            <input
+              type="number"
+              name="Deuda_Crediticia"
+              value={formData.Deuda_Crediticia}
+              onChange={handleChange}
+              placeholder="Deuda Crediticia"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-grey dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            />
+          </div>
+  
+          {/* Historial de Pago */}
+          <div className="mb-5">
+            <input
+              type="number"
+              name="Historial_Pago"
+              value={formData.Historial_Pago}
+              onChange={handleChange}
+              placeholder="Historial de Pago"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-grey dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            />
+          </div>
+  
+          {/* Botón Enviar */}
+          <div className="flex items-center justify-between">
+            <button
+              type="submit"
+              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              Enviar
+            </button>
+          </div>
         </form>
-    </div>
-    {prediction !== null && (
-        <div className="w-full max-w-xs mt-4">
-            <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-                <h2 className="text-xl font-bold mb-2 text-gray-700">Resultado de la Predicción</h2>
-                <p className="text-gray-600">Segmento: {prediction === 2 ? "Alto" : prediction === 1 ? "Medio" : "Bajo"}</p>
-            </div>
+      </div>
+  
+      {prediction !== null && (
+        <div className="w-full max-w-md mt-4">
+          <div className="bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4">
+            <h2 className="text-xl font-bold mb-2 text-gray-800">Resultado de la Predicción</h2>
+            <p className="text-gray-700">Segmento: {prediction === 2 ? "Alto" : prediction === 1 ? "Medio" : "Bajo"}</p>
+          </div>
         </div>
-    )}
-</div>
-
+      )}
+    </div>
   );
+  
 }
 
 export default App;
