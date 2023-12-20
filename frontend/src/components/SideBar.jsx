@@ -351,11 +351,11 @@ export default function Example() {
             </div>
           </div>
 
-          <main className="py-10">
-            <div className="px-4 sm:px-6 lg:px-8">
+        <main className="py-10">
+            <div className="px-4 sm:px-6 lg:px-8 flex justify-center">
                 <Form/>
             </div>
-          </main>
+        </main>
         </div>
       </div>
     </>
