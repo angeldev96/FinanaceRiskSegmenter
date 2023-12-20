@@ -17,11 +17,11 @@ const Form = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Manejador para el envío del formulario
-  const handleSubmit = async (e) => {
+   // Handler for form submission
+   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/predecir', {
+      const response = await fetch('http://localhost:5000/predict', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -29,11 +29,12 @@ const Form = () => {
         body: JSON.stringify(formData),
       });
       const data = await response.json();
-      setPrediction(data.prediccion[0]); // Actualiza el estado con la respuesta del servidor
+      setPrediction(data.prediction[0]); // Update state with server response
     } catch (error) {
-      console.error('Error al enviar el formulario:', error);
+      console.error('Error submitting the form:', error);
     }
   };
+
 
   return (
     <div className="w-full max-w-md">
