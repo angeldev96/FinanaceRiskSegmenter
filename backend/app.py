@@ -10,6 +10,10 @@ CORS(app)
 # Load the model at application startup
 model = joblib.load('models/risk.pkl')
 
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
+
 @app.route('/predict', methods=['POST'])
 def predict():
     """
@@ -34,7 +38,7 @@ def predict():
         # Return the result as JSON
         return jsonify({'prediction': prediction_result.tolist()})
     except Exception as e:
-        logging.error(f"An error occurred: {str(e)}")
+        logger.error(f"An error occurred: {str(e)}")
         return jsonify({'error': 'An internal server error occurred'}), 500
 
 def validate_input(data):
@@ -42,5 +46,4 @@ def validate_input(data):
     pass
 
 if __name__ == '__main__':
-    logging.basicConfig(level=logging.INFO)
     app.run(debug=True)
