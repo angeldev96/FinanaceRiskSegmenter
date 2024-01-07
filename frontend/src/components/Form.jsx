@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+
 const Form = () => {
   // Estado para los datos del formulario
   const [formData, setFormData] = useState({
@@ -30,6 +31,28 @@ const Form = () => {
       });
       const data = await response.json();
       setPrediction(data.prediction[0]); // Update state with server response
+
+      let audio = new Audio();
+
+       // Usar un bloque switch para determinar qué audio reproducir
+       switch (data.prediction[0]) {
+        case 2:
+          audio.src = '/voices/segmento_bajo/bajo1.mp3';
+          break;
+        case 1:
+          audio.src = '/voices/segmento_bajo/bajo2.mp3';
+          break;
+        case 0:
+          audio.src = '/voices/segmento_bajo/bajo3.mp3';
+          break;
+        default:
+          console.log('Respuesta no reconocida');
+          return;
+      }
+
+      // Reproducir el audio
+      audio.play();
+
     } catch (error) {
       console.error('Error submitting the form:', error);
     }
