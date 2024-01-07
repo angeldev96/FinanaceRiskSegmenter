@@ -1,0 +1,20 @@
+Segmento bajo:
+"Alerta: El perfil financiero del cliente indica un alto riesgo. Procede con precaución."
+"Atención: El cliente se encuentra en el segmento bajo. Se recomienda revisar su historial de pago y deuda crediticia."
+"El análisis muestra que el cliente está en el segmento bajo. Esto puede indicar problemas financieros."
+"El segmento del cliente es bajo, lo que sugiere un alto riesgo financiero. Es aconsejable realizar un análisis más detallado."
+"El cliente se encuentra en el segmento bajo. Esto podría afectar las decisiones de crédito."
+
+Segmento medio:
+"Nota: El perfil financiero del cliente indica un riesgo moderado. Procede con consideración."
+"El cliente se encuentra en el segmento medio. Se recomienda revisar su historial de pago y deuda crediticia."
+"El análisis muestra que el cliente está en el segmento medio. Esto puede indicar una estabilidad financiera moderada."
+"El segmento del cliente es medio, lo que sugiere un riesgo financiero moderado. Es aconsejable realizar un análisis más detallado."
+"El cliente se encuentra en el segmento medio. Esto podría afectar las decisiones de crédito de manera moderada."
+
+Segmento alto:
+"Buenas noticias: El perfil financiero del cliente indica un bajo riesgo. Procede con confianza."
+"El cliente se encuentra en el segmento alto. Su historial de pago y deuda crediticia son favorables."
+"El análisis muestra que el cliente está en el segmento alto. Esto indica una buena estabilidad financiera."
+"El segmento del cliente es alto, lo que sugiere un bajo riesgo financiero. Es aconsejable continuar con las operaciones normales."
+"El cliente se encuentra en el segmento alto. Esto debería facilitar las decisiones de crédito."
