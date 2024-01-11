@@ -37,15 +37,15 @@ const Form = () => {
        // Usar un bloque switch para determinar qué audio reproducir
        switch (data.prediction[0]) {
         case 2:{
-          const audios = ['bajo1.mp3', 'bajo2.mp3', 'bajo3.mp3', 'bajo4.mp3', 'bajo5.mp3'];
+          const audios = ['alto1.mp3', 'alto2.mp3', 'alto3.mp3', 'alto4.mp3', 'alto5.mp3'];
           const randomIndex = Math.floor(Math.random() * audios.length);
-          audio.src = '/voices/segmento_bajo/' + audios[randomIndex];
+          audio.src = '/voices/segmento_alto/' + audios[randomIndex];
         } 
         break;
         case 1:{
-          const audios = ['bajo1.mp3', 'bajo2.mp3', 'bajo3.mp3', 'bajo4.mp3', 'bajo5.mp3'];
+          const audios = ['medio1.mp3', 'medio2.mp3', 'medio3.mp3', 'medio4.mp3', 'medio5.mp3'];
           const randomIndex = Math.floor(Math.random() * audios.length);
-          audio.src = '/voices/segmento_bajo/' + audios[randomIndex];
+          audio.src = '/voices/segmento_medio/' + audios[randomIndex];
         } 
         break;
         case 0:{
