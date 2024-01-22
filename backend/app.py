@@ -42,8 +42,11 @@ def predict():
         return jsonify({'error': 'An internal server error occurred'}), 500
 
 def validate_input(data):
-    # Implement input validation logic here
-    pass
+    required_fields = ['age', 'job', 'marital', 'education', 'default', 'balance', 'housing', 'loan', 'contact', 'day', 'month', 'duration', 'campaign', 'pdays', 'previous', 'poutcome']
+
+    if not all(field in data for field in required_fields):
+        raise ValueError("Missing one or more required fields")
+
 
 if __name__ == '__main__':
     app.run(debug=True)
