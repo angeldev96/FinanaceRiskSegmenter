@@ -1,6 +1,6 @@
 Flask==1.1.2
 Flask-CORS==3.0.10
-joblib==1.0.1
+joblib>=1.2.0
 pandas==1.2.4
 logging==0.5.1.2
 
